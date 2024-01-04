@@ -99,7 +99,7 @@ The Postgres software runs a little differently in our VM than on a Mac or PC. Y
 
 1. `sudo vi /var/lib/pgsql/data/pg_hba.conf`
 2. Hit `i` to insert into the file.
-3. Copy and paste this:
+3. Copy and paste the following lines just below the configuration headers (must be above the other connection configurations):
 
    ```bash
    host                all        postgres   127.0.0.1/32   md5
