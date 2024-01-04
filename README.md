@@ -243,7 +243,7 @@ We're gonna create CRUD (Create, Read, Update, Delete) functionality for the tod
 
      pool.query("DELETE FROM todos WHERE id = $1", [id], (error, results) => {
        if (error) throw error;
-       response.status(204).send(`Todo deleted with ID: ${id}`);
+       response.status(204).send();
      });
    });
    ```
