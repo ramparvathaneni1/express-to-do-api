@@ -132,7 +132,7 @@ There are several ways to create a database, a table, and seed it with some star
    VALUES ('Get Milk', false), ('Walk Dog', false);
    ```
 
-   - This will create a table named `todos` and insert 2 starter todos. Feel free to add some of your own.
+   - This will create a table named `todos` and insert 2 starter todos. Feel free to add some of your own then save the file.
 
 #### YOU DO (5 minutes)
 
@@ -185,7 +185,9 @@ We're gonna create CRUD (Create, Read, Update, Delete) functionality for the tod
    - You can add this route underneath the existing `app.get` method and above the `app.listen` in the `index.js` file.
 1. Save the `index.js` file.
 1. Be sure to test this out in Postman with the provided collection of queries in this folder: `pru_todo_app.postman_collection.json`.
-1. When you open Postman, select "Open existing file", and open the collection.
+1. Open Postman and open the collection: 
+   1. Run `/opt/Postman/app/Postman` in the terminal
+   2. Select "Open existing file" and open the collection.
 
 ![](./assets/postman-get-todos.png)
 
