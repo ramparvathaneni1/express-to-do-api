@@ -282,6 +282,7 @@ Congrats! You built a full CRUD Todo API application and tested the endpoints wi
 
 ## References
 
+- [Cross-origin Resource Sharing](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS)
 - https://expressjs.com/en/starter/generator.html
 - https://blog.logrocket.com/crud-rest-api-node-js-express-postgresql/#creating-postgresql-database
 - [What is package.json](https://heynode.com/tutorial/what-packagejson/)
