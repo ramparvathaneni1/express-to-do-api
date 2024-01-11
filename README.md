@@ -122,14 +122,17 @@ There are several ways to create a database, a table, and seed it with some star
 1. `touch db/todo.sql`
 
    ```sql
-   CREATE TABLE todos (
-     ID SERIAL PRIMARY KEY,
-     title VARCHAR(50),
-     done BOOLEAN
-   );
+    CREATE TABLE todos (
+        ID SERIAL PRIMARY KEY,
+        title VARCHAR(50),
+        done BOOLEAN
+    );
 
-   INSERT INTO todos (title, done)
-   VALUES ('Get Milk', false), ('Walk Dog', false);
+    INSERT INTO
+        todos (title, done)
+    VALUES
+        ('Get Milk', false),
+        ('Walk Dog', false);
    ```
 
    - This will create a table named `todos` and insert 2 starter todos. Feel free to add some of your own then save the file.
