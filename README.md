@@ -97,7 +97,7 @@ There is a Postman collection in this folder that contains the endpoints we'll b
 
 The Postgres software runs a little differently in our VM than on a Mac or PC. You can read more about that [here](https://devopscube.com/install-configure-postgresql-amazon-linux/).
 
-1. `sudo vi /var/lib/pgsql/data/pg_hba.conf`
+1. `sudo vi /var/lib/pgsql/data/pg_hba.conf` (Note: Type this command carefully! If you're off by even one letter it will not work)
 2. Hit `i` to insert into the file.
 3. Copy and paste the following lines just below the configuration headers (must be above the other connection configurations):
 
