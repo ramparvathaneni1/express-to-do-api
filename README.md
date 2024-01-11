@@ -117,7 +117,7 @@ The Postgres software runs a little differently in our VM than on a Mac or PC. Y
 
 There are several ways to create a database, a table, and seed it with some starter Todos. To make things simple, we'll create a `sql` file then run it to accomplish these objectives.
 
-1. `mkdir db`
+1. Inside your `todo-app` folder create a new directory: `mkdir db`
    - We'll create a separate directory for our database logic.
 1. `touch db/todo.sql`
 
