@@ -262,7 +262,7 @@ We're gonna create CRUD (Create, Read, Update, Delete) functionality for the tod
             // Send back the updated todo item
              response.status(200).json({
              message: `Todo modified with ID: ${id}`,
-             todo: results.rows[0]
+             todo: { id, ...request.body }
              });
             } else {
             // Handle case where todo with the given ID was not found
