@@ -221,23 +221,22 @@ We're gonna create CRUD (Create, Read, Update, Delete) functionality for the tod
 1. In `index.js`, you can add this code below the previous route. _Take a minute to consider what this code is doing._
 
    ```js
-   app.delete("/api/todos/:id", (request, response) => {
-  const id = parseInt(request.params.id);
+    app.delete("/api/todos/:id", (request, response) => {
+    const id = parseInt(request.params.id);
 
-  pool.query("DELETE FROM todos WHERE id = $1", [id], (error, results) => {
-    if (error) {
-      // Handle the error more gracefully
-      response.status(500).json({error: "An error occurred while deleting the todo."});
-    } else if (results.rowCount > 0) {
-      // If the todo was found and deleted, send a confirmation message
-      response.status(200).json({message: `Todo with ID: ${id} was successfully deleted.`});
-    } else {
-      // If no todo was found with the given ID
-      response.status(404).json({message: "Todo not found."});
-    }
-  });
-});
-
+    pool.query("DELETE FROM todos WHERE id = $1", [id], (error, results) => {
+        if (error) {
+        // Handle the error more gracefully
+        response.status(500).json({error: "An error occurred while deleting the todo."});
+        } else if (results.rowCount > 0) {
+        // If the todo was found and deleted, send a confirmation message
+        response.status(200).json({message: `Todo with ID: ${id} was successfully deleted.`});
+        } else {
+        // If no todo was found with the given ID
+        response.status(404).json({message: "Todo not found."});
+        }
+    });
+    });
    ```
 1. Be sure to test this out in Postman with the provided collection of queries. First, delete a todo item then get all todos to confirm it's been deleted.
 
@@ -248,32 +247,31 @@ We're gonna create CRUD (Create, Read, Update, Delete) functionality for the tod
 1. In `index.js`, you can add this code below the previous route. _Take a minute to consider what this code is doing._
 
    ```js
-   app.put("/api/todos/:id", (request, response) => {
-    const id = parseInt(request.params.id);
-    const { title, done } = request.body;
+    app.put("/api/todos/:id", (request, response) => {
+        const id = parseInt(request.params.id);
+        const { title, done } = request.body;
 
-    pool.query(
-      "UPDATE todos SET title = $1, done = $2 WHERE id = $3",
-      [title, done, id],
-      (error, results) => {
-        if (error) {
-          // Better error handling
-          response.status(500).json({error: "An error occurred while updating the todo."});
-        } else if (results.rows.length > 0) {
-          // Send back the updated todo item
-          response.status(200).json({
-            message: `Todo modified with ID: ${id}`,
-            todo: results.rows[0]
-          });
-        } else {
-          // Handle case where todo with the given ID was not found
-          response.status(404).json({message: "Todo not found."});
-        }
-      }
-    );
-});
-
-   ```
+        pool.query(
+        "UPDATE todos SET title = $1, done = $2 WHERE id = $3",
+        [title, done, id],
+        (error, results) => {
+            if (error) {
+             // Better error handling
+             response.status(500).json({error: "An error occurred while updating the todo."});
+            } else if (results.rows.length > 0) {
+            // Send back the updated todo item
+             response.status(200).json({
+             message: `Todo modified with ID: ${id}`,
+             todo: results.rows[0]
+             });
+            } else {
+            // Handle case where todo with the given ID was not found
+            response.status(404).json({message: "Todo not found."});
+            }
+         }
+        );
+    });
+    ```
    - Note: we need to send _both_ the `title` and `done` fields to the database even if we're updating only one field. Otherwise, the other field will be updated with `null`. What are some other strategies to avoid this? [Check this article.](https://medium.com/developer-rants/conditional-update-in-postgresql-a27ddb5dd35)
 1. Be sure to test this out in Postman with the provided collection of queries.
 
