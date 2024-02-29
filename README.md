@@ -93,26 +93,6 @@ There is a Postman collection in this folder that contains the endpoints we'll b
 
    ![](./assets/hi-there.png)
 
-## Configure Postgres in the VM
-
-The Postgres software runs a little differently in our VM than on a Mac or PC. You can read more about that [here](https://devopscube.com/install-configure-postgresql-amazon-linux/).
-
-1. `sudo vi /var/lib/pgsql/data/pg_hba.conf` (Note: Type this command carefully! If you're off by even one letter it will not work)
-2. Hit `i` to insert into the file.
-3. Copy and paste the following lines just below the configuration headers (must be above the other connection configurations):
-
-   ```bash
-   host                all        postgres   127.0.0.1/32   md5
-   local               all        postgres                  md5
-   host                all        all        0.0.0.0/0      md5
-   host                all        all        localhost      md5
-   ```
-
-   ![](./assets/pg_config.png)
-
-4. Hit `esc` then `:wq` to write and close the file.
-5. Run `sudo systemctl restart postgresql` to restart the postgresql server.
-
 ## Create a SQL file to create a table
 
 There are several ways to create a database, a table, and seed it with some starter Todos. To make things simple, we'll create a `sql` file then run it to accomplish these objectives.
