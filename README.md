@@ -258,7 +258,7 @@ We're gonna create CRUD (Create, Read, Update, Delete) functionality for the tod
             if (error) {
              // Better error handling
              response.status(500).json({error: "An error occurred while updating the todo."});
-            } else if (results.rows.length > 0) {
+            } else if (results.rowCount > 0) {
             // Send back the updated todo item
              response.status(200).json({
              message: `Todo modified with ID: ${id}`,
