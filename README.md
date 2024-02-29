@@ -248,7 +248,10 @@ We're gonna create CRUD (Create, Read, Update, Delete) functionality for the tod
        [title, done, id],
        (error, results) => {
          if (error) throw error;
-         response.status(200).send(`Todo modified with ID: ${id}`);
+          response.status(200).json({
+            message: `Todo modified with ID: ${id}`,
+            todo: results.rows[0]
+          });
        }
      );
    });
